@@ -31,11 +31,14 @@
         createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
         background(BACKGROUND_COLOR);
         strokeWeight(2);
+        let start = new Date();
         let solving = new Graph(NODE_COUNT, EDGE_COUNT);
         solving.christofides();
         stroke(PALLETTE.blue);
         drawEdges(solving.edges);
         drawNodes(solving.nodes);
+        let end = new Date();
+        console.log("Total time: "+(end-start)+"ms");
       }
       function draw() {}
     </script>
