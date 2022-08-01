@@ -8,18 +8,18 @@
       const CANVAS_WIDTH = 700;
       const CANVAS_HEIGHT = 700;
       const BACKGROUND_COLOR = "#646464";
-      const NODE_COUNT = 50;
+      const NODE_COUNT = 100;
       const EDGE_COUNT = 0;
       const NODE_SIZE = 20;
 
       const LOG_MST = false;
       const LOG_PM = false;
       const LOG_WALK = false;
-      const LOG_PRUNE = false;
+      const LOG_PRUNE = false;  
       const LOG_ALL_EDGES = false;
       const LOG_TIMING = true;
 
-      const PART_UPDATE = true;
+      let PART_UPDATE = true;
 
       const PALLETTE = {
         red: "#fda1ac",
@@ -44,16 +44,29 @@
           drawNodes(solving.nodes);
           let end = new Date();
           console.log("Total time: " + (end - start) + "ms");
+          solving.currentState = "cross";
         } else {
-          frameRate(10);
+          //frameRate(10);
           stroke(PALLETTE.blue);
           drawNodes(solving.nodes);
         }
+        // solving.nodes[21] = new Node(21,  10, 10);
+        // solving.nodes[22] = new Node(22, 100, 20);
+        // solving.nodes[23] = new Node(23,  10,100);
+        // solving.nodes[24] = new Node(24, 100, 50);
+        // solving.edges.push(new Edge(solving.nodes[21],solving.nodes[22]));
+        // solving.edges.push(new Edge(solving.nodes[23],solving.nodes[24]));
+        // let edgeA = solving.edges.length-2;
+        // let edgeB = solving.edges.length-1;
+        // stroke(PALLETTE.blue);
+        // solving.edges[edgeA].draw();
+        // solving.edges[edgeB].draw();
+        // solving.intersect(solving.edges[edgeA], solving.edges[edgeB]);
       }
       function draw() {
-        if (PART_UPDATE) {
+        // if (PART_UPDATE) {
           solving.update();
-        }
+        // }
       }
     </script>
   </head>
